@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#030204"><title>Naveen &amp; Bhanu — A Diwali Night</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f5c77b;--gold2:#ffdf9e;--ink:#030204}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--ink);color:#fff;font-family:Manrope,system-ui,sans-serif}body{min-height:100svh}.scene{position:fixed;inset:0;display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity 1.25s cubic-bezier(.2,.75,.2,1),visibility 1.25s;background:#030204}.scene.active{opacity:1;visibility:visible}.opening{background:#000}.opening video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;animation:videoIn 1.7s ease forwards}.opening:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.28) 100%);pointer-events:none}@keyframes videoIn{to{opacity:1}}.fade-out{opacity:0!important;transition:opacity .7s ease!important}
+.code-scene{background:radial-gradient(ellipse at 50% 38%,#18101a 0%,#09070c 40%,#020203 100%);padding:12px;overflow-y:auto}
+.code-wrap{width:min(390px,94vw);max-height:96svh;overflow-y:auto;text-align:center;transform:translateY(12px);opacity:0;transition:1s ease;padding:10px 8px 14px;scrollbar-width:none}
+.code-wrap::-webkit-scrollbar{display:none}
+.active .code-wrap{transform:none;opacity:1}
+/* Keep Bhanu as a compact character beside her message, never a full-screen image. */
+.code-guide{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;margin:0 auto 14px;min-height:120px}
+.code-guide img{display:block;flex:0 0 auto;width:clamp(105px,31vw,142px);height:clamp(125px,22vh,175px);max-width:38%;object-fit:contain;object-position:center bottom;}
+.code-guide .speech-bubble{flex:1;min-width:0;padding:12px 13px;border:1px solid #e8c58c66;border-radius:18px 18px 18px 5px;background:linear-gradient(145deg,#211b20ed,#100e14e8);box-shadow:0 10px 25px #0007;color:#f7e8d2;font:400 clamp(16px,4vw,21px)/1.3 'Cormorant Garamond',serif;text-align:left}
+.code-guide .speech-bubble small{display:block;margin-top:7px;color:#d6b77f;font:500 9px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+@media(max-height:700px){.code-guide{min-height:95px;margin-bottom:8px}.code-guide img{height:clamp(95px,18vh,130px)}.eyebrow{margin-bottom:12px}.code-sub{margin-bottom:18px}.dots{margin-bottom:20px}.key{height:54px}.hint{margin-top:10px}}
+@media(max-width:380px){.code-guide{gap:7px}.code-guide img{width:105px;height:125px}.code-guide .speech-bubble{font-size:16px;padding:10px}}.eyebrow{font-size:9px;letter-spacing:.42em;text-transform:uppercase;color:#bba98e;margin-bottom:27px}.code-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34px;letter-spacing:.02em;margin:0 0 9px}.code-sub{font-size:11px;color:#827b83;letter-spacing:.08em;margin:0 0 34px}.dots{display:flex;justify-content:center;gap:15px;margin:0 0 35px}.dot{width:8px;height:8px;border-radius:50%;border:1px solid #766b62;transition:.25s}.dot.filled{background:var(--gold);border-color:var(--gold);box-shadow:0 0 13px #e9b96888;transform:scale(1.14)}.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 15px;width:100%}.key{height:65px;border:1px solid rgba(255,255,255,.085);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018));color:#f4eee7;font:300 23px Manrope;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 #ffffff0d,0 8px 22px #0005;touch-action:manipulation;transition:transform .16s,background .2s,border-color .2s}.key:active{transform:scale(.93);background:rgba(230,183,111,.16);border-color:#d7b27666}.key.utility{font-size:13px;color:#b7a99a;letter-spacing:.08em}.key.blank{visibility:hidden}.hint{min-height:20px;height:auto;margin-top:13px;font-size:10px;color:#cda66f;letter-spacing:.08em;transition:color .25s,opacity .25s}.code-memory{margin:-20px 0 18px;color:#9f9290;font:italic 15px 'Cormorant Garamond',serif;letter-spacing:.03em;opacity:.9}.key.utility{font-size:19px;letter-spacing:0;color:#d7bd98}.code-wrap.success .dot{background:var(--gold);border-color:var(--gold);box-shadow:0 0 18px #e9b968aa;transform:scale(1.28);animation:unlockDot .45s ease both}.code-wrap.success .dot:nth-child(2){animation-delay:.06s}.code-wrap.success .dot:nth-child(3){animation-delay:.12s}.code-wrap.success .dot:nth-child(4){animation-delay:.18s}.code-wrap.success .keypad{opacity:.45;pointer-events:none;transition:opacity .3s}.code-wrap.success .hint{color:#f4d49b;font-size:11px;text-shadow:0 0 14px #e9b96877}@keyframes unlockDot{50%{transform:scale(1.65)}100%{transform:scale(1.28)}}.code-guide img{animation:guideArrive .8s .15s both}.code-guide .speech-bubble{animation:bubbleArrive .65s .35s both;box-shadow:0 10px 25px #0007,0 0 25px #e9b96812}.code-guide .speech-bubble:after{content:'✦';display:inline-block;margin-left:7px;color:#e8c58c;animation:preloaderSpark 1.8s ease-in-out infinite}@keyframes guideArrive{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}@keyframes bubbleArrive{from{opacity:0;transform:translateX(10px) scale(.97)}to{opacity:1;transform:none}}.shake{animation:shake .3s}@keyframes shake{25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
+/* Cinematic diya lighting */
+.diya-scene{position:relative;overflow:hidden;isolation:isolate;touch-action:manipulation;background:radial-gradient(ellipse at 50% 67%,#38200f 0%,#170e0a 30%,#080607 68%,#020203 100%)}
+.diya-scene:before{content:"";position:absolute;inset:-20%;z-index:-1;background:repeating-conic-gradient(from 0deg at 50% 62%,#e5a64a08 0deg 2deg,transparent 2deg 15deg);mask-image:radial-gradient(ellipse at 50% 62%,black 0%,transparent 58%);opacity:.65;animation:rangoliTurn 90s linear infinite}
+.diya-scene:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 75%,transparent 0 24%,#0005 78%)}
+@keyframes rangoliTurn{to{transform:rotate(360deg)}}
+.diya-instruction{position:absolute;z-index:3;top:17%;left:0;right:0;text-align:center;font:500 10px Manrope,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#d8b98a;opacity:0;transition:opacity 1s .4s}
+.active .diya-instruction{opacity:1}
+.diya-title{position:absolute;z-index:3;top:22%;left:0;right:0;text-align:center;font:400 clamp(29px,6vw,46px)/1.05 'Cormorant Garamond',serif;color:#f8e2bd;text-shadow:0 0 25px #f6b75c44;opacity:0;transform:translateY(10px);transition:opacity 1s .6s,transform 1s .6s}
+.active .diya-title{opacity:1;transform:none}
+.diya-button{position:relative;z-index:4;width:min(78vw,340px);height:min(64vh,330px);margin-top:15vh;border:0;background:none;display:grid;place-items:center;cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent;filter:drop-shadow(0 24px 25px #0009);transition:transform .5s}
+.diya-button:focus-visible{outline:1px solid #f5c77b;border-radius:50%}
+.diya-aura{position:absolute;width:86%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#ffad3a13 0%,#ff8b1b08 42%,transparent 72%);filter:blur(12px);transition:1.4s}
+.bowl{position:absolute;bottom:19%;width:76%;height:27%;border-radius:12px 12px 110px 110px/12px 12px 78px 78px;background:linear-gradient(180deg,#e5a15b 0%,#a9572b 20%,#71331e 66%,#2c120e 100%);box-shadow:inset 0 6px 8px #ffe0a077,inset 0 -16px 20px #180906,0 24px 35px #000b;transform:perspective(240px) rotateX(-7deg)}
+.bowl:before{content:"";position:absolute;left:-2%;right:-2%;top:-9%;height:25%;border-radius:50%;background:linear-gradient(180deg,#ffd08a,#b96532 58%,#642719);box-shadow:inset 0 3px 5px #fff0c6aa,0 2px 7px #1c0906}
+.oil{position:absolute;top:3%;left:9%;right:9%;height:15%;border-radius:50%;background:radial-gradient(ellipse,#24120b 0%,#4b2112 70%,#b86a35 100%);box-shadow:inset 0 2px 3px #ffca7a44}
+.rim-highlight{position:absolute;top:9%;left:18%;width:38%;height:3px;border-radius:50%;background:#ffe0a0aa;filter:blur(1px)}
+.wick{position:absolute;z-index:3;bottom:43%;width:6px;height:37px;border-radius:4px;background:linear-gradient(90deg,#2b1710,#e0bd85,#27140c);transform:rotate(9deg)}
+.flame{position:absolute;z-index:4;bottom:53%;width:35px;height:70px;opacity:0;transform:scale(.08);transform-origin:bottom center;border-radius:55% 45% 52% 48%/68% 65% 35% 32%;background:radial-gradient(ellipse at 50% 73%,#fff8c8 0 12%,#ffda73 24%,#ff9d31 53%,#e54c13 76%,transparent 78%);filter:drop-shadow(0 0 12px #ff9b31) drop-shadow(0 0 35px #ff7b1c);transition:opacity .35s,transform .9s cubic-bezier(.16,1,.3,1)}
+.flame:after{content:"";position:absolute;inset:10px 9px 5px;border-radius:50%;background:radial-gradient(ellipse,#fff 0%,#fff2b3 40%,transparent 72%);filter:blur(2px)}
+.flame:before{content:"";position:absolute;left:50%;bottom:0;width:12px;height:20px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,#b9e5ff99 0%,#6dbfff55 42%,transparent 76%);filter:blur(3px);opacity:0;transition:opacity .25s}
+.lit .flame{opacity:1;transform:scale(1);animation:flameCatch .9s cubic-bezier(.16,1,.3,1) both,flicker 1.35s .9s infinite alternate}
+.lit .flame:before{opacity:.85}
+.lit .diya-aura{background:radial-gradient(circle,#ff9b2c55 0%,#ff8b1b22 42%,transparent 72%);transform:scale(1.65)}
+@keyframes flameCatch{0%{transform:scale(.04,.08);filter:drop-shadow(0 0 0 #ff9b31)}35%{transform:scale(.55,1.22);filter:drop-shadow(0 0 18px #ff9b31)}68%{transform:scale(1.08,.92)}100%{transform:scale(1)}}
+@keyframes flicker{0%{transform:scale(1) rotate(-3deg)}45%{transform:scale(.96,1.08) rotate(2deg)}100%{transform:scale(1.07,.97) rotate(-1deg)}}
+.diya-scene.igniting .wick{filter:drop-shadow(0 0 8px #ffbd64);transition:filter .25s}
+.diya-scene.igniting .wick:after{content:"";position:absolute;left:50%;top:-7px;width:5px;height:12px;transform:translateX(-50%);border-radius:50%;background:#fff4c0;box-shadow:0 0 12px 5px #ffb347;animation:wickFlash .35s ease-out forwards}
+@keyframes wickFlash{0%{opacity:0;transform:translateX(-50%) scale(.2)}35%{opacity:1;transform:translateX(-50%) scale(1.3)}100%{opacity:0;transform:translate(-50%,-12px) scale(.2)}}
+.reflection{position:absolute;bottom:8%;width:90%;height:36px;border-radius:50%;background:radial-gradient(ellipse,#e58a382e,transparent 70%);filter:blur(10px)}
+.diya-button:before{content:"";position:absolute;bottom:7%;width:92%;height:7%;border-radius:50%;background:radial-gradient(ellipse,#d98b4524,transparent 70%)}
+.diya-scene.lit .diya-button{animation:diyaReveal .9s ease both}
+@keyframes diyaReveal{0%{transform:scale(.94)}100%{transform:scale(1)}}
+.diya-instruction,.diya-title{transition-delay:.2s}
+.diya-scene.lit .diya-instruction{opacity:0}
+.diya-scene.lit .diya-title{top:16%;font-size:clamp(24px,5vw,36px)}
+ .diya-scene.lit .diya-title:after{content:" ✨"}
+/* A brief personal wish appears after the wick catches, then yields to the full-screen glow. */
+.diya-message{position:absolute;z-index:6;left:8%;right:8%;top:31%;max-width:520px;margin:auto;text-align:center;color:#f8dfb4;font:italic clamp(18px,4.8vw,25px)/1.35 'Cormorant Garamond',serif;letter-spacing:.015em;text-shadow:0 0 20px #f4b95c66;opacity:0;transform:translateY(12px);pointer-events:none}
+.diya-scene.lit .diya-message{animation:diyaWishReveal 1s 1.35s ease forwards}
+@keyframes diyaWishReveal{to{opacity:1;transform:translateY(0)}}
+.diya-burst{position:fixed;z-index:12;left:var(--x);top:var(--y);width:5px;height:5px;border-radius:50%;background:#fff2bf;box-shadow:0 0 10px 3px #ffb347;pointer-events:none;animation:touchSpark .9s ease-out forwards}
+@keyframes touchSpark{0%{opacity:0;transform:translate(0,0) scale(.3)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.05)}}
+.diya-scene.igniting .diya-button{animation:ignitionPulse .75s ease-out}
+@keyframes ignitionPulse{0%{transform:scale(.97)}45%{transform:scale(1.035)}100%{transform:scale(1)}}
+.tap-glow{position:fixed;z-index:20;inset:0;width:100vw;height:100dvh;background:radial-gradient(ellipse at 50% 56%,#fff8df 0%,#ffe3ad 22%,#ffc36f 48%,#e98b3b 76%,#a94d20 100%);opacity:0;transform:scale(1);pointer-events:none}
+/* The light deliberately covers the complete portrait viewport before the story begins. */
+.tap-glow.expand{animation:fullScreenDiyaGlow 3.05s ease-in-out forwards}
+@keyframes fullScreenDiyaGlow{0%{opacity:0}18%{opacity:.98}62%{opacity:1}82%{opacity:.94}100%{opacity:0}}
+.diya-scene.lit:after{animation:roomGlow 2.4s ease forwards}
+@media (max-width:600px){.tap-glow{height:100dvh;min-height:100vh}}
+@keyframes roomGlow{0%{background:radial-gradient(ellipse at 50% 68%,transparent 0 20%,#0007 78%)}55%{background:radial-gradient(ellipse at 50% 68%,#ffca7a22 0 32%,#0002 82%)}100%{background:radial-gradient(ellipse at 50% 68%,#ffca7a0c 0 28%,#0004 85%)}}
+@media(max-height:620px){.diya-button{height:65vh;margin-top:12vh}.diya-title{top:13%}.diya-instruction{top:8%}}
+
+
+
+/* Enhanced cinematic diya: ignition, layered flame, oil reflections and floating embers. */
+.diya-scene{background:radial-gradient(ellipse at 50% 70%,#563019 0%,#24130d 28%,#0b0808 64%,#020203 100%)}
+.diya-scene:before{opacity:.9;background:repeating-conic-gradient(from 0deg at 50% 62%,#f4bd6a0c 0deg 1.2deg,transparent 1.2deg 12deg);mask-image:radial-gradient(ellipse at 50% 62%,black 0%,transparent 67%)}
+.diya-aura{width:105%;background:radial-gradient(ellipse,#ffb34a1c 0%,#ff9a3210 40%,transparent 72%);filter:blur(18px)}
+.diya-halo{position:absolute;bottom:39%;width:43%;height:45%;border-radius:50%;opacity:0;background:radial-gradient(ellipse,#fff2bd28 0%,#ffae4520 28%,transparent 72%);filter:blur(15px);transform:scale(.55);transition:opacity .7s,transform 1.2s}
+.lit .diya-halo{opacity:1;transform:scale(1.35);animation:haloPulse 2.4s ease-in-out infinite alternate}
+@keyframes haloPulse{to{filter:blur(22px);opacity:.72;transform:scale(1.55)}}
+.diya-scene.lit .diya-halo{animation:haloPulse 2.4s ease-in-out infinite alternate,haloIgnition .95s ease-out both}
+@keyframes haloIgnition{0%{opacity:0;transform:scale(.35)}55%{opacity:1;transform:scale(1.7)}100%{opacity:1;transform:scale(1.35)}}
+
+.bowl{height:29%;background:linear-gradient(180deg,#f2bd7b 0%,#c87940 13%,#98451f 36%,#602818 72%,#2b100b 100%);box-shadow:inset 0 7px 9px #fff0c288,inset 0 -18px 22px #1b0805,0 26px 40px #000c,0 0 25px #e58a3820}
+.bowl:before{top:-10%;height:27%;background:linear-gradient(180deg,#ffe0a0 0%,#d58a4d 42%,#71301a 100%)}
+.oil{top:1%;height:18%;background:radial-gradient(ellipse at 50% 35%,#7b4726 0%,#32190f 58%,#170b07 100%);box-shadow:inset 0 2px 6px #ffd18a66,0 0 9px #ffb65a33}
+.oil:after{content:"";position:absolute;left:18%;top:20%;width:42%;height:28%;border-radius:50%;background:#ffd38a35;filter:blur(4px)}
+.bowl-detail{position:absolute;left:15%;right:15%;bottom:19%;height:2px;border-radius:50%;background:#ffc17a55;filter:blur(1px)}
+.flame{width:40px;height:82px;bottom:53%;background:radial-gradient(ellipse at 50% 78%,#fffdf0 0 8%,#fff0ad 18%,#ffc34e 35%,#ff8b26 58%,#e64d13 75%,transparent 78%);filter:drop-shadow(0 0 10px #ffb23f) drop-shadow(0 0 26px #ff7c1c) drop-shadow(0 0 54px #ff8b26aa)}
+.flame:after{inset:14px 11px 8px;background:radial-gradient(ellipse at 50% 65%,#fff 0%,#fff9d9 35%,#ffe18b 58%,transparent 76%);filter:blur(2px)}
+.flame i{position:absolute;z-index:2;left:50%;bottom:2px;width:9px;height:32px;transform:translateX(-50%);border-radius:50%;background:linear-gradient(0deg,#7cc8ff88,transparent);filter:blur(3px)}
+.ember{position:absolute;z-index:5;bottom:49%;width:5px;height:5px;border-radius:50%;background:#fff4bc;box-shadow:0 0 12px 5px #ff9b36;opacity:0}
+.lit .ember{animation:emberIgnite .75s ease-out forwards}
+@keyframes emberIgnite{0%{opacity:0;transform:translateY(18px) scale(.2)}45%{opacity:1;transform:translateY(-9px) scale(1.5)}100%{opacity:0;transform:translateY(-24px) scale(.3)}}
+.diya-spark,.diya-dust{position:absolute;z-index:5;display:block;pointer-events:none;border-radius:50%;opacity:0}
+.diya-spark{width:4px;height:4px;background:#ffe7a4;box-shadow:0 0 10px 3px #ff9d3b}
+.lit .diya-spark{animation:floatSpark 2.8s ease-out infinite}
+.spark-one{left:27%;bottom:43%;animation-delay:.1s!important}.spark-two{right:25%;bottom:45%;animation-delay:1s!important}.spark-three{left:43%;bottom:58%;animation-delay:1.7s!important}
+@keyframes floatSpark{0%{opacity:0;transform:translate3d(0,8px,0) scale(.4)}20%{opacity:.95}100%{opacity:0;transform:translate3d(12px,-100px,0) scale(.1)}}
+.diya-dust{width:3px;height:3px;background:#ffd48b;box-shadow:0 0 8px 2px #ffae4a}
+.lit .diya-dust{animation:dustRise 4s linear infinite}
+.dust-one{left:18%;bottom:25%;animation-delay:.2s!important}.dust-two{right:19%;bottom:28%;animation-delay:1.6s!important}.dust-three{left:66%;bottom:37%;animation-delay:2.7s!important}
+@keyframes dustRise{0%{opacity:0;transform:translateY(0) scale(.5)}15%{opacity:.7}100%{opacity:0;transform:translateY(-190px) translateX(16px) scale(0)}}
+.lit .diya-button{filter:drop-shadow(0 24px 25px #0009) drop-shadow(0 0 25px #ff9b3b22)}
+@media(prefers-reduced-motion:reduce){.diya-scene:before,.lit .flame,.lit .diya-halo,.lit .diya-spark,.lit .diya-dust,.diya-scene.igniting .wick:after{animation:none!important}.lit .flame{opacity:1;transform:scale(1)}}
+
+/* Tollywood-style story title card between the diya and college video */
+.story-prologue{position:fixed;inset:0;z-index:30;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#34200f 0%,#100b0a 42%,#030204 100%);opacity:0;visibility:hidden;transition:opacity .8s ease,visibility .8s ease;padding:8vh 8vw;text-align:center}
+.story-prologue.active{opacity:1;visibility:visible}
+.story-prologue:before{content:"";position:absolute;inset:-30%;background:repeating-conic-gradient(from 0deg at 50% 50%,#e9b75a0b 0deg 1deg,transparent 1deg 12deg);animation:prologueRays 45s linear infinite;pointer-events:none}
+.story-prologue:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 20%,#0009 100%);pointer-events:none}
+@keyframes prologueRays{to{transform:rotate(360deg)}}
+.prologue-content{position:relative;z-index:2;width:min(100%,620px);display:flex;flex-direction:column;align-items:center;gap:clamp(13px,2.4vh,24px)}
+.prologue-kicker{font:500 9px Manrope,sans-serif;letter-spacing:.48em;text-transform:uppercase;color:#d7ad69;opacity:0;animation:prologueFade .8s .2s forwards}
+.prologue-line{max-width:100%;font:400 clamp(25px,6.2vw,43px)/1.12 'Cormorant Garamond',serif;letter-spacing:.01em;color:#f7e8d0;text-shadow:0 2px 25px #e5a84b44;opacity:0;transform:translateY(18px);animation:prologueFade .85s ease forwards}
+.prologue-line strong{font-weight:600;color:#f4c879;text-shadow:0 0 24px #ffbd5b66}
+.prologue-line.final-thought{font-size:clamp(28px,7vw,48px);font-style:italic;color:#ffdda1}
+.prologue-divider{width:70px;height:1px;background:linear-gradient(90deg,transparent,#d5a75e,transparent);opacity:0;animation:prologueFade .7s 1s forwards}
+@keyframes prologueFade{to{opacity:1;transform:translateY(0)}}
+.story-prologue .prologue-line:nth-of-type(3){animation-delay:.8s}
+.story-prologue .prologue-line:nth-of-type(4){animation-delay:1.8s}
+.story-prologue .prologue-line:nth-of-type(5){animation-delay:2.8s}
+.story-prologue .prologue-line:nth-of-type(6){animation-delay:3.8s}
+.story-prologue .prologue-line:nth-of-type(7){animation-delay:4.8s}
+.story-prologue .prologue-line:nth-of-type(8){animation-delay:5.8s}
+.story-prologue .prologue-line:nth-of-type(9){animation-delay:6.8s}
+@media(max-height:700px){.prologue-content{gap:clamp(8px,1.5vh,14px)}.prologue-line{font-size:clamp(22px,5.3vw,34px)}}
+
+
+.college-scene{background:linear-gradient(180deg,#07101e 0%,#101a2a 55%,#080d17 100%);overflow:hidden;isolation:isolate}
+.campus-sky{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 35%,#30415b55,transparent 55%),linear-gradient(180deg,transparent 55%,#070b12 100%)}
+.campus-moon{position:absolute;top:11%;right:17%;width:44px;height:44px;border-radius:50%;background:#d8e1e8;box-shadow:0 0 35px #c4d8ef55,0 0 100px #9bb9db22;opacity:.6}
+.campus-building{position:absolute;left:-8%;right:-8%;bottom:22%;height:34%;background:linear-gradient(180deg,#1a2739,#101a29);clip-path:polygon(0 18%,10% 18%,10% 0,90% 0,90% 18%,100% 18%,100% 100%,0 100%);border-top:1px solid #8296b333}
+.campus-building:before{content:"";position:absolute;inset:22% 12% 0;background:repeating-linear-gradient(90deg,transparent 0 12%,#080f1c 12.2% 14%,transparent 14.2% 25%),repeating-linear-gradient(0deg,transparent 0 42%,#080f1c 42.5% 46%,transparent 46.5% 100%);opacity:.8}
+.campus-ground{position:absolute;bottom:-12%;left:-20%;width:140%;height:47%;background:radial-gradient(ellipse at 50% 0%,#46536a33,transparent 58%),linear-gradient(180deg,#111b2a,#05080e);transform:perspective(280px) rotateX(12deg);transform-origin:top}
+.path-light{position:absolute;bottom:0;left:50%;width:2px;height:42%;background:linear-gradient(transparent,#93a9c322,transparent);box-shadow:0 0 50px 20px #a3b9d00a}
+.story-caption{position:absolute;top:11%;left:0;right:0;text-align:center;font:italic 25px 'Cormorant Garamond',serif;color:#d9e2ef;letter-spacing:.04em;opacity:0;transition:opacity 1.2s}
+.college-scene.playing .story-caption{opacity:.78}
+.story-characters{position:absolute;bottom:15%;left:0;right:0;height:48%;display:flex;align-items:flex-end;justify-content:center;gap:34px;transform:translateY(10px)}
+.student{position:relative;width:94px;height:230px;opacity:0;transform:translateY(18px);transition:opacity 1.2s,transform 1.2s}
+.student.show{opacity:1;transform:translateY(0)}
+.student .head{position:absolute;top:0;left:27px;width:42px;height:49px;border-radius:46% 46% 43% 43%;background:linear-gradient(110deg,#a66e52,#e0a47d 55%,#80503f);box-shadow:inset -7px -2px 0 #58382f55}
+.student .body{position:absolute;top:46px;left:12px;width:72px;height:116px;border-radius:22px 22px 8px 8px;background:linear-gradient(90deg,#422c27,#8b5946 50%,#3b2926);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%)}
+.student .leg{position:absolute;top:150px;width:25px;height:76px;background:linear-gradient(90deg,#151c2a,#303b4d);border-radius:5px 5px 10px 10px;transform-origin:top}
+.student .leg.left{left:22px}.student .leg.right{left:49px}
+.student.boy .hair{position:absolute;z-index:2;top:-9px;left:20px;width:55px;height:37px;border-radius:50% 48% 30% 30%;background:#17151a;box-shadow:6px 1px 0 #17151a,-6px 6px 0 #17151a,0 -7px 0 #17151a}
+.student.boy .hair:before{content:"";position:absolute;left:8px;top:-7px;width:18px;height:21px;border-radius:90% 10%;background:#211a1b;transform:rotate(22deg);box-shadow:14px -3px 0 #211a1b,25px 2px 0 #211a1b}
+.student.girl{transform:translate(85px,18px);width:94px}
+.student.girl.show{transform:translate(0,0)}
+.student.girl .hair{position:absolute;z-index:3;top:-8px;left:22px;width:52px;height:43px;border-radius:48% 48% 35% 35%;background:#17141a}
+.student.girl .hair:after{content:"";position:absolute;right:-10px;top:26px;width:18px;height:103px;border-radius:0 0 12px 12px;background:linear-gradient(90deg,#17141a,#30212a)}
+.student.girl .body{background:linear-gradient(90deg,#4c3568,#9b78b7 50%,#4d3767);height:119px}
+.student.girl .leg{background:linear-gradient(90deg,#4c3568,#9170a9)}
+.student.girl .dupatta{position:absolute;z-index:4;top:52px;left:51px;width:27px;height:105px;border-right:2px solid #d7c2ec88;transform:skew(-8deg);opacity:.8}
+.student.walking .leg.left{animation:walk .5s infinite alternate}.student.walking .leg.right{animation:walk .5s .25s infinite alternate}
+@keyframes walk{to{transform:rotate(13deg)}}
+.campus-warmth{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 72%,#ffc36b00 0%,#ffc36b00 45%,transparent 70%);opacity:0;transition:opacity 3s,background 3s;pointer-events:none;z-index:5}
+.college-scene.warm .campus-warmth{opacity:1;background:radial-gradient(ellipse at 50% 72%,#ffc36b44 0%,#ffc36b1a 42%,transparent 72%)}
+.college-scene.warm .campus-building{background:linear-gradient(180deg,#4a3b3a,#241c25);transition:background 3s}
+.college-scene.warm .campus-ground{background:linear-gradient(180deg,#5d493d,#17111a);transition:background 3s}
+.window-lights{position:absolute;inset:24% 14% 28%;background:repeating-linear-gradient(90deg,transparent 0 12%,#ffd38a00 12.3% 14%,transparent 14.3% 25%);transition:all 3s;z-index:2}
+.college-scene.warm .window-lights{background:repeating-linear-gradient(90deg,transparent 0 12%,#ffd38a99 12.3% 14%,transparent 14.3% 25%);filter:drop-shadow(0 0 8px #ffbf67)}
+.story-end{position:absolute;z-index:7;bottom:8%;left:0;right:0;text-align:center;color:#ffe3b2;font:italic 22px 'Cormorant Garamond',serif;letter-spacing:.04em;opacity:0;transition:opacity 1.5s}
+.college-scene.warm .story-end{opacity:1;transition-delay:1.5s}
+@media(max-height:650px){.student{transform:scale(.8);transform-origin:bottom}.story-characters{bottom:12%;height:48%}.story-caption{top:8%}}
+
+.final-scene{background:radial-gradient(ellipse at 50% 42%,#3a202b 0%,#160d18 48%,#020204 100%);overflow:hidden;isolation:isolate}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 20%,#ffe6bd 90%,transparent),radial-gradient(1px 1px at 78% 17%,#fff 90%,transparent),radial-gradient(1.5px 1.5px at 65% 33%,#f7d9ae 90%,transparent),radial-gradient(1px 1px at 27% 60%,#fff 90%,transparent),radial-gradient(1px 1px at 89% 67%,#fff 90%,transparent),radial-gradient(1px 1px at 43% 14%,#fff 90%,transparent);opacity:.75}
+.final-scene:before,.final-scene:after{content:"";position:absolute;width:5px;height:5px;border-radius:50%;top:20%;left:18%;box-shadow:0 0 0 2px #ffd78a22,0 0 18px 5px #ffca6b,0 0 0 18px #ffca6b22,0 0 0 38px #ffca6b12,0 0 0 58px #ffca6b08;animation:finalFirework 3.8s ease-out infinite}
+.final-scene:after{top:28%;left:78%;animation-delay:1.4s;transform:scale(.75)}
+@keyframes finalFirework{0%,100%{opacity:0;transform:scale(.12)}15%{opacity:1}65%{opacity:.75;transform:scale(1.25)}85%{opacity:0;transform:scale(1.5)}}
+.final-content{position:relative;z-index:2;text-align:center;width:min(88vw,420px);padding:clamp(24px,5vh,48px) 24px;background:linear-gradient(145deg,#241923df,#100d16e8);border:1px solid #e7c28a55;border-radius:5px;box-shadow:0 20px 70px #0009,inset 0 1px #fff1;opacity:0;transform:translateY(24px) scale(.97);transition:1.2s cubic-bezier(.2,.75,.2,1) .35s}
+.active .final-content{opacity:1;transform:none}
+.final-kicker{font-size:9px;letter-spacing:.42em;color:#d2ae7c;text-transform:uppercase;margin-bottom:22px}
+.final-divider{width:76px;height:1px;margin:0 auto 22px;background:linear-gradient(90deg,transparent,#e9c17d,transparent)}
+.final-title{font:400 clamp(39px,9vw,54px)/.98 'Cormorant Garamond',serif;margin:0 0 20px;color:#ffe8c5;text-shadow:0 0 28px #e8ad5b44}
+.final-line{font:400 14px/1.9 'Cormorant Garamond',serif;color:#d8c6b5;letter-spacing:.025em}
+.final-name{font:italic 29px 'Cormorant Garamond',serif;color:#f4d5a4;margin-top:25px;letter-spacing:.08em}
+.tiny{font-size:9px;color:#c6a878;letter-spacing:.3em;margin-top:24px}
+.final-content>*{animation:finalTextIn .9s both}
+.final-content .final-kicker{animation-delay:.65s}.final-content .final-divider{animation-delay:.9s}.final-content .final-title{animation-delay:1.15s}.final-content .final-line{animation-delay:1.45s}.final-content .final-name{animation-delay:1.8s}.final-content .tiny{animation-delay:2.1s}
+@keyframes finalTextIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-height:650px){.final-content{padding:20px 18px}.final-title{font-size:40px}.final-line{font-size:12px}.final-name{margin-top:16px}}
+
+
+/* Generated 10-second college story video */
+.college-scene{background:#000;overflow:hidden;isolation:isolate}
+.story-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;display:block}
+.story-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.08),transparent 38%,rgba(0,0,0,.12))}
+.story-image{position:absolute;inset:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transform:scale(1.055);transition:opacity .45s ease,transform 2s ease}
+.story-image.visible{opacity:1;transform:scale(1)}
+.story-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.12),transparent 42%,rgba(0,0,0,.42))}
+.story-caption{position:absolute;z-index:2;left:8%;right:8%;bottom:11%;text-align:center;font:italic 25px 'Cormorant Garamond',serif;color:#ffe5bd;text-shadow:0 2px 14px #000;opacity:0;transform:translateY(12px);transition:opacity .35s ease,transform .35s ease}
+.story-caption.show{opacity:1;transform:translateY(0)}
+.college-scene.warm .story-overlay{background:linear-gradient(180deg,rgba(25,12,5,.08),transparent 42%,rgba(34,15,3,.32))}
+@media(max-width:480px){.story-image{background-position:center center}.story-caption{font-size:22px;bottom:10%}}
+
+/* Gift reveal after the opening video — use Naveen's supplied character artwork */
+.gift-intro{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(8px,2vh,18px);padding:18px 12px;text-align:center;background:radial-gradient(ellipse at 50% 62%,#9b57253b 0%,#2b171b66 42%,#030204 80%);opacity:0;visibility:hidden;transition:opacity .9s ease,visibility .9s ease;overflow:hidden}
+.gift-intro.ready{opacity:1;visibility:visible}
+.gift-copy{font:400 clamp(27px,6vw,42px)/1.08 'Cormorant Garamond',serif;color:#f8e7ce;text-shadow:0 0 24px #e7ac5a66;opacity:0;transform:translateY(12px);transition:opacity .8s .25s,transform .8s .25s}
+.gift-intro.ready .gift-copy{opacity:1;transform:none}
+.gift-copy small{display:block;margin-top:9px;color:#d9b77e;font:500 9px Manrope,sans-serif;letter-spacing:.25em;text-transform:uppercase}
+.gift-art{position:relative;width:min(88vw,440px);max-height:69svh;display:grid;place-items:center;opacity:0;transform:translateY(18px) scale(.96);transition:opacity .9s .2s,transform .9s .2s;filter:drop-shadow(0 18px 28px #0009)}
+.gift-intro.ready .gift-art{opacity:1;transform:translateY(0) scale(1)}
+.gift-art img{display:block;width:100%;height:auto;max-height:69svh;object-fit:contain;user-select:none;-webkit-user-drag:none;pointer-events:none}
+/* Transparent hit area sits over the actual illustrated present, not Naveen's face. */
+.gift-button{position:absolute;left:17%;top:55%;width:68%;height:42%;border:0;border-radius:18px;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;z-index:2}
+.gift-button:before{content:"";position:absolute;inset:8% 5%;border:1px solid #ffe4a000;border-radius:14px;transition:.3s;pointer-events:none}
+.gift-button:focus-visible{outline:2px solid #ffe2a0;outline-offset:3px}
+.gift-intro.opened .gift-button:before{border:0;box-shadow:none}
+.gift-intro.opened .gift-art{filter:drop-shadow(0 0 28px #ffc56a99);transform:scale(1.035);transition:filter .7s,transform .7s}
+.gift-hint{color:#e4c99f;font:500 10px Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 0 12px #e7ac5a;animation:hintPulse 1.8s ease-in-out infinite}
+.gift-intro.opened .gift-hint{opacity:0}
+@keyframes hintPulse{50%{opacity:.45}}
+@media(max-height:650px){.gift-intro{gap:6px;padding:8px}.gift-art,.gift-art img{max-height:66svh}.gift-copy{font-size:clamp(23px,5vw,32px)}.gift-copy small{margin-top:5px}}
+@media(min-width:700px){.gift-art{width:min(58vh,440px)}}
+
+
+
+/* Optional final handwritten-style letter */
+.letter-open{display:block;margin:25px auto 0;padding:12px 19px;border:1px solid #e7c28a88;border-radius:30px;background:#f5c77b12;color:#f7dfb7;font:500 10px Manrope,sans-serif;letter-spacing:.12em;cursor:pointer;transition:transform .2s,background .2s;animation:letterButtonIn .8s 2.7s both}
+.letter-open:active{transform:scale(.96);background:#f5c77b28}
+@keyframes letterButtonIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.letter-backdrop{position:absolute;z-index:8;inset:0;display:grid;place-items:center;padding:22px;background:#050308d9;backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .55s,visibility .55s}
+.letter-backdrop.open{opacity:1;visibility:visible}
+.letter-card{position:relative;width:min(90vw,390px);padding:36px 27px 30px;background:linear-gradient(145deg,#f7e8ce,#e8d1aa);color:#493326;border-radius:4px;box-shadow:0 24px 80px #000b;transform:translateY(20px) scale(.97);transition:transform .6s cubic-bezier(.2,.8,.2,1);text-align:left}
+.letter-backdrop.open .letter-card{transform:none}
+.letter-close{position:absolute;right:13px;top:9px;border:0;background:transparent;color:#74553c;font-size:25px;cursor:pointer}
+.letter-seal{width:35px;height:35px;margin:0 auto 17px;display:grid;place-items:center;border-radius:50%;background:#9c4f39;color:#ffe6bd;box-shadow:0 3px 10px #5a291c55}
+.letter-label{text-align:center;text-transform:uppercase;letter-spacing:.25em;font:600 8px Manrope,sans-serif;color:#98704c}
+.letter-heading{margin:24px 0 12px;font:italic 28px 'Cormorant Garamond',serif}
+.letter-card p{font:400 16px/1.65 'Cormorant Garamond',serif;margin:0 0 12px;color:#5a4436}
+.letter-sign{text-align:right;margin-top:22px;font:italic 24px 'Cormorant Garamond',serif;color:#8a4938}
+
+
+
+
+/* Cinematic first-load screen */
+.preloader{position:fixed;inset:0;z-index:30;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 45%,#24151b 0%,#09060b 48%,#020203 100%);opacity:1;visibility:visible;transition:opacity .85s ease,visibility .85s ease}
+.preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.preloader-inner{text-align:center;padding:24px;animation:preloaderBreath 2.4s ease-in-out infinite}
+.preloader-mark{font-size:29px;color:#f5c77b;text-shadow:0 0 24px #f5c77b99;margin-bottom:17px;animation:preloaderSpark 1.8s ease-in-out infinite}
+.preloader-title{font:italic 27px 'Cormorant Garamond',serif;color:#f7e8d2;letter-spacing:.04em}
+.preloader-sub{margin-top:9px;color:#bca17e;font:500 8px Manrope,sans-serif;letter-spacing:.28em;text-transform:uppercase}
+.preloader-line{width:112px;height:1px;margin:22px auto 0;background:#ffffff20;overflow:hidden}
+.preloader-line:after{content:"";display:block;width:45%;height:100%;background:#f5c77b;box-shadow:0 0 9px #f5c77b;animation:preloaderLoad 1.3s ease-in-out infinite}
+@keyframes preloaderLoad{from{transform:translateX(-120%)}to{transform:translateX(250%)}}
+@keyframes preloaderSpark{50%{transform:scale(1.18);text-shadow:0 0 34px #f5c77b}}
+@keyframes preloaderBreath{50%{opacity:.72}}
+/* A short, soft gift reaction without changing the existing interaction. */
+.gift-intro.opened .gift-art{animation:giftCelebrate .85s cubic-bezier(.2,.8,.2,1)}
+@keyframes giftCelebrate{0%{transform:scale(1)}22%{transform:scale(.96) rotate(-1deg)}48%{transform:scale(1.055) rotate(1deg)}72%{transform:scale(1.025)}100%{transform:scale(1.035)}}
+.gift-intro.opened .gift-button:after{content:"✦";position:absolute;left:50%;top:45%;font-size:35px;color:#ffe8b5;text-shadow:0 0 18px #ffc56a;pointer-events:none;animation:giftBurst .9s ease-out forwards}
+@keyframes giftBurst{0%{opacity:0;transform:translate(-50%,-20%) scale(.2)}35%{opacity:1;transform:translate(-50%,-80%) scale(1.2)}100%{opacity:0;transform:translate(-50%,-150%) scale(.5)}}
+.music-toggle{position:fixed;z-index:12;right:max(17px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));width:46px;height:46px;border:1px solid #e7c28a88;border-radius:50%;background:#120d12d9;color:#f8dfb4;display:none;place-items:center;font-size:17px;box-shadow:0 5px 24px #0008,0 0 18px #e6b66a22;backdrop-filter:blur(12px);cursor:pointer;touch-action:manipulation}
+.music-toggle.visible{display:grid}
+.music-toggle:active{transform:scale(.92)}
+.music-toggle:focus-visible{outline:2px solid #ffe2a0;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.preloader-inner,.preloader-mark,.preloader-line:after,.gift-intro.opened .gift-art,.gift-intro.opened .gift-button:after{animation:none!important}}
+
+
+/* Natural diya lighting refinement: keep illumination local to the flame and bowl. */
+.diya-scene{
+  background:radial-gradient(ellipse 43% 36% at 50% 68%,#28180f 0%,#140d09 48%,#070506 78%,#020203 100%) !important;
+}
+.diya-scene:before{
+  opacity:.28 !important;
+  mask-image:radial-gradient(ellipse at 50% 62%,black 0%,transparent 43%) !important;
+}
+.diya-aura{
+  width:62% !important;
+  background:radial-gradient(ellipse,#ffad3a12 0%,#ff982008 42%,transparent 70%) !important;
+  filter:blur(13px) !important;
+}
+.diya-scene.lit .diya-aura{
+  transform:scale(1.12) !important;
+  background:radial-gradient(ellipse,#ff9b2c25 0%,#ff8b1b0d 42%,transparent 70%) !important;
+}
+.diya-halo{
+  width:28% !important;height:28% !important;bottom:43% !important;
+  background:radial-gradient(ellipse,#fff2bd1c 0%,#ffae4510 34%,transparent 72%) !important;
+  filter:blur(12px) !important;
+}
+.diya-scene.lit .diya-halo{animation:localHalo 2.8s ease-in-out infinite alternate !important}
+@keyframes localHalo{to{opacity:.58;transform:scale(1.18);filter:blur(16px)}}
+.diya-scene.lit:after{
+  animation:none !important;
+  background:radial-gradient(ellipse 34% 24% at 50% 69%,transparent 0 48%,#0003 100%) !important;
+}
+.flame{
+  filter:drop-shadow(0 0 8px #ff9b31) drop-shadow(0 0 17px #ff7b1c) !important;
+}
+.diya-scene.lit .diya-button{
+  filter:drop-shadow(0 20px 22px #0009) drop-shadow(0 0 12px #ff9b3b12) !important;
+}
+.diya-title{text-shadow:0 0 12px #f6b75c22 !important}
+
+.letter-card{max-height:calc(100dvh - 60px);overflow-y:auto;overscroll-behavior:contain;box-sizing:border-box}.letter-card p{overflow-wrap:break-word}
+/* iPhone-style keypad refresh */
+.code-scene{background:radial-gradient(ellipse at 50% 42%,#17151a 0%,#0b0a0e 48%,#050405 100%)}
+.code-wrap{--key-gold:#d8ad68}
+.code-title{text-shadow:0 2px 24px #d9a95b18}
+.code-memory{color:#a99b91}
+.dots{gap:14px}
+.dot{width:9px;height:9px;border:1px solid #807a78;background:#171519;box-shadow:0 0 0 3px #ffffff08}
+.dot.filled{background:#f2d39b;border-color:#f2d39b;box-shadow:0 0 8px #f2d39b88,0 0 18px #f2d39b44}
+.keypad{gap:12px 16px;max-width:258px;margin:0 auto;justify-items:center}
+.key{width:68px;height:68px;border:0;border-radius:50%;background:rgba(255,255,255,.13);color:#fff;font:400 25px -apple-system,BlinkMacSystemFont,'Manrope',sans-serif;box-shadow:inset 0 1px 0 #ffffff12,0 3px 10px #0003;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);touch-action:manipulation;transition:transform .14s ease,background .18s ease,box-shadow .18s ease}
+.key:active{transform:scale(.91);background:rgba(255,255,255,.28);box-shadow:0 0 0 2px #e8c58b55,0 0 18px #e8c58b22}
+.key.utility{font-size:22px;color:#f0d6ad;background:transparent;box-shadow:none}
+.key.blank{visibility:hidden}
+.code-wrap.success .keypad{opacity:.4}
+@media(max-height:700px){.key{width:58px;height:58px}.keypad{gap:9px 14px}}
+@media(max-width:380px){.key{width:62px;height:62px}}
+@media(prefers-reduced-motion:reduce){.key{transition:none}}
+/* A small gold sparkle appears exactly where a keypad button is touched. */
+.secret-code-highlight{display:inline-block;margin:4px 2px 0;padding:3px 9px;border:1px solid #e8c58c88;border-radius:999px;background:linear-gradient(135deg,#f5c77b25,#f5c77b0b);color:#ffe0a6;font:600 .92em Manrope,sans-serif;letter-spacing:.19em;text-shadow:0 0 12px #f5c77b66;box-shadow:0 0 16px #e8c58c18}
+.key{position:relative;overflow:visible}
+.key.touch-sparkle:after{content:'✦';position:absolute;z-index:5;top:-10px;right:-5px;color:#ffe6ad;font:700 17px/1 Manrope,sans-serif;text-shadow:0 0 6px #fff1c2,0 0 14px #f5bd61,0 0 22px #f5bd61;pointer-events:none;animation:keySparkle .58s ease-out forwards}
+.key.touch-sparkle:before{content:'✧';position:absolute;z-index:5;left:-7px;bottom:-5px;color:#f5d49b;font:700 13px/1 Manrope,sans-serif;text-shadow:0 0 10px #f5bd61;pointer-events:none;animation:keySparkle .58s .04s ease-out forwards}
+@keyframes keySparkle{0%{opacity:0;transform:scale(.2) rotate(-25deg)}35%{opacity:1;transform:scale(1.25) rotate(12deg)}100%{opacity:0;transform:scale(.45) translateY(-9px) rotate(35deg)}}
+@media(prefers-reduced-motion:reduce){.key.touch-sparkle:before,.key.touch-sparkle:after{animation:none;opacity:0}}
+
+/* Gift opens visually on the first touch, before moving to the passcode. */
+.gift-art img{opacity:1;transition:opacity .32s ease,transform .5s ease}
+.gift-art img.changing{opacity:0;transform:scale(.985)}
+.gift-intro.opened .gift-art img{filter:drop-shadow(0 0 22px #ffc56a55)}
+
+/* Keep the gift tap area invisible: no rectangle or box highlight after tapping. */
+.gift-intro.opened .gift-button:before{border-color:transparent!important;box-shadow:none!important}
+.gift-button:focus{outline:none}
+.gift-button:focus-visible{outline:none}
+</style></head>
+<body>
+<section id="opening" class="scene opening active">
+<video id="openingVideo" autoplay muted playsinline preload="auto"><source src="diwali-opening.mp4" type="video/mp4"></video>
+<div class="gift-intro" id="giftIntro" aria-live="polite">
+  <div class="gift-copy">Take your present,<br>Bhanu ♡<small>A little surprise, made just for you</small></div>
+  <div class="gift-art">
+    <img id="giftImage" src="naveen-gift-closed.png" data-open-image="naveen-gift-open.png" alt="Naveen holding a wrapped Diwali gift for Bhanu">
+    <button class="gift-button" id="giftButton" type="button" aria-label="Touch the gift box to reveal the secret code"></button>
+  </div>
+  <div class="gift-hint">✦ Touch the gift box to unlock ✦</div>
+</div>
+</section>
+<section id="codeScene" class="scene code-scene"><div class="code-wrap" id="codeWrap"><div class="code-guide"><img src="bhanu-code-gesture.png" alt="Bhanu pointing down toward the secret code"><div class="speech-bubble">Bhanu, your little surprise is waiting. Your secret code is <span class="secret-code-highlight">2326</span>.<small>— Bhanu</small></div></div><div class="eyebrow">A little secret</div><h1 class="code-title">Your surprise is waiting</h1><p class="code-sub">Tap the numbers to unlock your surprise</p><div class="code-memory">A little number, just between us ♡</div><div class="dots" id="dots" aria-label="4 digit passcode"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="keypad" id="keypad"><button class="key" data-num="1">1</button><button class="key" data-num="2">2</button><button class="key" data-num="3">3</button><button class="key" data-num="4">4</button><button class="key" data-num="5">5</button><button class="key" data-num="6">6</button><button class="key" data-num="7">7</button><button class="key" data-num="8">8</button><button class="key" data-num="9">9</button><button class="key blank" tabindex="-1" aria-hidden="true"></button><button class="key" data-num="0">0</button><button class="key utility" data-action="back" aria-label="Delete last digit" title="Delete last digit">⌫</button></div><div class="hint" id="hint"> </div></div></section>
+<section id="diyaScene" class="scene diya-scene">
+  <div class="diya-instruction" id="diyaInstruction">A little light, just for you</div>
+  <h2 class="diya-title" id="diyaTitle">Light up this beautiful night</h2>
+  <button class="diya-button" id="diyaButton" aria-label="Tap to light the diya">
+    <div class="diya-aura"></div>
+    <div class="diya-halo"></div>
+    <div class="wick"></div><div class="ember"></div><div class="flame"><i></i></div>
+    <div class="bowl"><div class="oil"></div><div class="rim-highlight"></div><div class="bowl-detail"></div></div>
+    <div class="reflection"></div>
+    <span class="diya-spark spark-one"></span><span class="diya-spark spark-two"></span><span class="diya-spark spark-three"></span>
+    <span class="diya-dust dust-one"></span><span class="diya-dust dust-two"></span><span class="diya-dust dust-three"></span>
+  </button>
+  <div class="diya-message" id="diyaMessage">Some lights make a festival beautiful.<br>Some people make life brighter. ♡</div>
+  <div class="tap-glow" id="tapGlow"></div>
+</section>
+
+
+<section id="collegeScene" class="scene college-scene" aria-label="Naveen and Bhanu's college story">
+  <video id="storyVideo" class="story-video" playsinline muted preload="auto">
+    <source src="story.mp4" type="video/mp4">
+  </video>
+  <div class="story-overlay"></div>
+</section>
+<section id="finalScene" class="scene final-scene"><div class="stars"></div><div class="final-content"><div class="final-kicker">A little light, a little wish</div><div class="final-divider"></div><h2 class="final-title">Happy Diwali,<br>Bhanu ♡</h2><div class="final-line">May this Diwali burn all your tensions<br>with crackers and bring lots of happiness<br>and fulfill all your dreams.</div><div class="final-name">With warm wishes,<br>Naveen</div><div class="tiny">ALWAYS KEEP SMILING😊❤️</div><button class="letter-open" id="letterOpen" type="button">✉ &nbsp; One last little thing</button></div><div class="letter-backdrop" id="letterBackdrop" aria-hidden="true"><div class="letter-card"><button class="letter-close" id="letterClose" type="button" aria-label="Close letter">×</button><div class="letter-seal">✦</div><div class="letter-label">A little note for you</div><div class="letter-heading">Dear Bhanu ♡,</div><p id="letterMessage">This might sound a bit funny, but for some reason, I really want to tell you this: Whatever hardships or sorrows you may face in life, I will be there for you. It might sound like a line from a movie, but I mean it quite seriously—whenever you go through something so painful that you feel you cannot share it with anyone else, please remember that I am there for you.</p><div class="letter-sign">— Naveen 😁💖</div></div></div></section>
+<audio id="storyMusic" preload="auto"><source src="story-music.mp3" type="audio/mpeg"></audio>
+
+<script>
+const $=id=>document.getElementById(id);
+const scenes=['opening','codeScene','diyaScene','collegeScene','finalScene'];function show(id){scenes.forEach(s=>$(s).classList.toggle('active',s===id))}
+const video=$('openingVideo');
+let videoDone=false;
+function finishOpening(){
+  if(videoDone)return;
+  videoDone=true;
+  video.pause();
+  video.classList.add('fade-out');
+  setTimeout(()=>{
+    // The opening film ends on a gift. Bhanu opens it herself to reveal the secret.
+    $('giftIntro').classList.add('ready');
+  },700);
+}
+let giftOpened=false;
+$('giftButton').addEventListener('click',()=>{
+  if(giftOpened)return;
+  giftOpened=true;
+  const giftImage=$('giftImage');
+  $('giftIntro').classList.add('opened');
+  // Reveal the open gift artwork on touch, then continue to the secret code.
+  giftImage.classList.add('changing');
+  setTimeout(()=>{
+    giftImage.src=giftImage.dataset.openImage;
+    giftImage.alt='Naveen revealing the open gift box for Bhanu';
+    giftImage.classList.remove('changing');
+  },320);
+  // Let the open-gift artwork remain visible for 1.2 seconds after it appears,
+  // then fade smoothly into the secret-code screen.
+  setTimeout(()=>{
+    $('giftIntro').classList.remove('ready');
+    setTimeout(()=>show('codeScene'),400);
+  },1520);
+});
+video.addEventListener('timeupdate',()=>{
+  if(video.currentTime>=4) finishOpening();
+});
+video.addEventListener('ended',finishOpening);
+video.addEventListener('error',()=>setTimeout(finishOpening,1200));
+const openingPlay=video.play();
+if(openingPlay&&openingPlay.catch)openingPlay.catch(()=>setTimeout(finishOpening,4000));
+setTimeout(finishOpening,4300);
+const secret='2326';let entered='';let codeLocked=false;const dots=[...document.querySelectorAll('.dot')];function paint(){dots.forEach((d,i)=>d.classList.toggle('filled',i<entered.length))}function input(n){if(codeLocked||entered.length>=4)return;entered+=n;paint();if(entered.length===4){if(entered===secret){codeLocked=true;$('codeWrap').classList.add('success');$('hint').textContent='You found our little secret! ♡';setTimeout(()=>{show('diyaScene');$('codeWrap').classList.remove('success');entered='';paint();$('hint').textContent='';codeLocked=false;},1150)}else{$('codeWrap').classList.remove('shake');void $('codeWrap').offsetWidth;$('codeWrap').classList.add('shake');$('hint').textContent='Oops! That is not our special number. Try once more ♡';setTimeout(()=>{entered='';paint();$('hint').textContent=' '},1050)}}}function back(){if(codeLocked)return;entered=entered.slice(0,-1);paint();$('hint').textContent=' '}document.querySelectorAll('.key').forEach(b=>{b.addEventListener('pointerdown',()=>{b.classList.remove('touch-sparkle');void b.offsetWidth;b.classList.add('touch-sparkle');clearTimeout(b._sparkleTimer);b._sparkleTimer=setTimeout(()=>b.classList.remove('touch-sparkle'),650);if(b.dataset.num!==undefined&&'vibrate' in navigator){try{navigator.vibrate(14)}catch(_){}}});b.addEventListener('pointerup',e=>{e.preventDefault();if(b.dataset.num!==undefined)input(b.dataset.num);if(b.dataset.action==='back')back()})});document.addEventListener('keydown',e=>{if(!$('codeScene').classList.contains('active'))return;if(/^\d$/.test(e.key))input(e.key);if(e.key==='Backspace')back()});
+let diyaLit=false;
+
+
+const letterBackdrop=$('letterBackdrop');
+$('letterOpen').addEventListener('click',()=>{letterBackdrop.classList.add('open');letterBackdrop.setAttribute('aria-hidden','false');});
+function closeLetter(){letterBackdrop.classList.remove('open');letterBackdrop.setAttribute('aria-hidden','true');}
+$('letterClose').addEventListener('click',closeLetter);
+letterBackdrop.addEventListener('click',e=>{if(e.target===letterBackdrop)closeLetter();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&letterBackdrop.classList.contains('open'))closeLetter();});
+
+const music=$('storyMusic');
+const storyVideo=$('storyVideo');
+
+function finishCollegeVideo(){
+  if(!$('collegeScene').classList.contains('active')) return;
+  storyVideo.pause();
+  show('finalScene');
+  // Keep the background music playing into the final reveal.
+}
+
+function playCollegeStory(){
+  show('collegeScene');
+  music.currentTime=0;
+  music.volume=0.85;
+  music.play().catch(err=>console.warn('Music playback was blocked:',err));
+
+  storyVideo.currentTime=0;
+  const playback=storyVideo.play();
+  if(playback&&playback.catch){
+    playback.catch(err=>{
+      console.warn('Story video playback failed:',err);
+      finishCollegeVideo();
+    });
+  }
+}
+
+storyVideo.addEventListener('ended',finishCollegeVideo);
+storyVideo.addEventListener('error',()=>{
+  console.error('Could not load college-story.mp4');
+  finishCollegeVideo();
+});
+
+$('diyaButton').addEventListener('pointerup',e=>{
+  e.preventDefault();
+  if(diyaLit)return;
+  diyaLit=true;
+  const diya=$('diyaScene');
+  $('diyaButton').disabled=true;
+  $('diyaInstruction').textContent='A little light, just for you';
+  // Release a small burst of sparks exactly where Bhanu touches the diya.
+  const burstX=e.clientX || window.innerWidth/2;
+  const burstY=e.clientY || window.innerHeight/2;
+  for(let i=0;i<13;i++){
+    const spark=document.createElement('span');
+    spark.className='diya-burst';
+    const angle=(Math.PI*2*i)/13;
+    const distance=28+(i%4)*13;
+    spark.style.setProperty('--x',burstX+'px');
+    spark.style.setProperty('--y',burstY+'px');
+    spark.style.setProperty('--dx',(Math.cos(angle)*distance)+'px');
+    spark.style.setProperty('--dy',(Math.sin(angle)*distance)+'px');
+    diya.appendChild(spark);
+    setTimeout(()=>spark.remove(),1000);
+  }
+  // A short ignition beat makes the flame feel as though it catches from the touch.
+  diya.classList.add('igniting');
+  setTimeout(()=>diya.classList.add('lit'),160);
+  $('diyaTitle').textContent='May your night shine bright';
+  // Reveal the personal wish briefly before the golden transition takes over.
+  setTimeout(()=>$('tapGlow').classList.add('expand'),2650);
+  // Let the golden light fill the screen, then go straight to the college story video.
+  setTimeout(playCollegeStory,5700);
+});
+</script></body></html>
